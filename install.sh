@@ -26,7 +26,7 @@ fi
 
 
 Download_Mirror='http://218.4.138.116:807/file.php/1/soft'
-Download_MirrorSlave='http://10.32.103.10/soft'
+Download_MirrorSlave='http://hongm.emoodle.org'
 
 LNMP_Ver=${cur_dir##*-}
 . include/main.sh

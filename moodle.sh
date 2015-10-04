@@ -4,7 +4,7 @@ export PATH
 
 MoodleFileName="moodle29_git.tgz"
 Download_MirrorSlave='http://218.4.138.116:807/file.php/1/soft'
-Download_Mirror='http://10.32.103.10/soft'
+Download_Mirror='http://hongm.emoodle.org'
 
 
 # Check if user is root
@@ -350,6 +350,7 @@ if [[ -s /usr/local/nginx/conf/nginx.conf && -s /usr/local/nginx/sbin/nginx ]]; 
     Start_Moodle
  else
     Dispaly_Selection
+    Nginx_Selection
     Select_Moodle
     LNMP_Stack 2>&1 | tee -a ${cur_dir}/lnmp-install.log
     DB_Root_Password=${MysqlRootPWD}
