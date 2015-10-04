@@ -169,11 +169,11 @@ Nginx_Selection()
     read -p "Enter your choice (1 or 2): " NginxSelect
 
     if [ "${NginxSelect}" = "1" ]; then
-        echo "You will install Nginx ${Nginx_Version1}"
+        echo -e " \e[0;32mYou will install \e[0;31mNginx ${Nginx_Version1}\e[0m"
     elif [ "${NginxSelect}" = "2" ]; then
-        echo "You will install Nginx ${Nginx_Version2}"
+        echo -e " \e[0;32mYou will install \e[0;31mNginx ${Nginx_Version2}\e[0m"
     else
-        echo "No input,You will install Nginx ${Nginx_Version1}"
+        echo -e " \e[0;32mNo input,You will install \e[0;31mNginx ${Nginx_Version1}\e[0m"
         NginxSelect="1"
     fi
 }
@@ -203,11 +203,11 @@ Apache_Selection()
     read -p "Enter your choice (1 or 2): " ApacheSelect
 
     if [ "${ApacheSelect}" = "1" ]; then
-        echo "You will install Apache ${Apache_Version1}"
+        echo -e " \e[0;32mYou will install \e[0;31mApache ${Apache_Version1}\e[0m"
     elif [ "${ApacheSelect}" = "2" ]; then
-        echo "You will install Apache ${Apache_Version2}"
+        echo -e " \e[0;32mYou will install \e[0;31mApache ${Apache_Version2}\e[0m"
     else
-        echo "No input,You will install Apache ${Apache_Version2}"
+        echo -e " \e[0;32mNo input,You will install \e[0;31mApache ${Apache_Version2}\e[0m"
         ApacheSelect="2"
     fi
 }
