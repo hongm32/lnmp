@@ -22,6 +22,7 @@ fi
 Stack="lnmp"
 LNMP_Ver=${cur_dir##*-}
 
+. include/mainversion.sh
 . include/main.sh
 . include/init.sh
 . include/mysql.sh
