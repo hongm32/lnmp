@@ -226,11 +226,11 @@ Install_Moodle()
     if [ $n -ge 8 ]; then
         echo "Network error! Please continue to install http://${IP} in the browser!"
      else
-        /usr/bin/mysql -u root -p${MysqlRootPWD} -h localhost -e "UPDATE moodle.mdl_config SET value='firstname,lastname' WHERE name='alternativefullnameformat';"
-        /usr/bin/mysql -u root -p${MysqlRootPWD} -h localhost -e "UPDATE moodle.mdl_config SET value='0' WHERE name='defaulthomepage';"
-        /usr/bin/mysql -u root -p${MysqlRootPWD} -h localhost -e "UPDATE moodle.mdl_config SET value='CN' WHERE name='country';"
-        /usr/bin/mysql -u root -p${MysqlRootPWD} -h localhost -e "UPDATE moodle.mdl_config SET value='Asia/Shanghai' WHERE name='timezone';"
-        /usr/bin/mysql -u root -p${MysqlRootPWD} -h localhost -e "UPDATE moodle.mdl_config SET value='' WHERE name='docroot';"
+        /usr/bin/mysql -u root -p${DB_Root_Password} -h localhost -e "UPDATE moodle.mdl_config SET value='firstname,lastname' WHERE name='alternativefullnameformat';"
+        /usr/bin/mysql -u root -p${DB_Root_Password} -h localhost -e "UPDATE moodle.mdl_config SET value='0' WHERE name='defaulthomepage';"
+        /usr/bin/mysql -u root -p${DB_Root_Password} -h localhost -e "UPDATE moodle.mdl_config SET value='CN' WHERE name='country';"
+        /usr/bin/mysql -u root -p${DB_Root_Password} -h localhost -e "UPDATE moodle.mdl_config SET value='Asia/Shanghai' WHERE name='timezone';"
+        /usr/bin/mysql -u root -p${DB_Root_Password} -h localhost -e "UPDATE moodle.mdl_config SET value='' WHERE name='docroot';"
         /usr/bin/php /www/moodle/admin/cli/mysql_compressed_rows.php -f
     fi
 
