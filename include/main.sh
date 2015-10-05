@@ -36,12 +36,12 @@ Dispaly_Selection()
 
     DBSelect="5"
     Echo_Yellow "You have 6 options for your DataBase install."
-    echo "1: Install MySQL ${MySQL_Version1}"
-    echo "2: Install MySQL ${MySQL_Version2}"
-    echo "3: Install MySQL ${MySQL_Version3}"
-    echo "4: Install MariaDB ${MariaDB_Version4}"
-    echo "5: Install MariaDB ${MariaDB_Version5} (Default)"
-    echo "6: Install MariaDB ${MariaDB_Version6}"
+    echo -e "   \e[0;31m1\e[0m: Install MySQL ${MySQL_Version1}"
+    echo -e "   \e[0;31m2\e[0m: Install MySQL ${MySQL_Version2}"
+    echo -e "   \e[0;31m3\e[0m: Install MySQL ${MySQL_Version3}"
+    echo -e "   \e[0;31m4\e[0m: Install MariaDB ${MariaDB_Version4}"
+    echo -e "   \e[0;31m5\e[0m: Install MariaDB ${MariaDB_Version5} \e[44;37m(Default)\e[0m"
+    echo -e "   \e[0;31m6\e[0m: Install MariaDB ${MariaDB_Version6}"
     read -p "Enter your choice (1, 2, 3, 4, 5 or 6): " DBSelect
 
     case "${DBSelect}" in
@@ -72,7 +72,7 @@ Dispaly_Selection()
         MySQL_Bin="/usr/local/mariadb/bin/mysql"
         MySQL_Config="/usr/local/mariadb/bin/mysql_config"
         MySQL_Dir="/usr/local/mariadb"
-    else
+     else
         MySQL_Bin="/usr/local/mysql/bin/mysql"
         MySQL_Config="/usr/local/mysql/bin/mysql_config"
         MySQL_Dir="/usr/local/mysql"
@@ -83,12 +83,12 @@ Dispaly_Selection()
 
     PHPSelect="5"
     Echo_Yellow "You have 6 options for your PHP install."
-    echo "1: Install PHP ${PHP_Version1}"
-    echo "2: Install PHP ${PHP_Version2}"
-    echo "3: Install PHP ${PHP_Version3}"
-    echo "4: Install PHP ${PHP_Version4}"
-    echo "5: Install PHP ${PHP_Version5} (Default)"
-    echo "6: Install PHP ${PHP_Version6}"
+    echo -e "   \e[0;31m1\e[0m: Install PHP ${PHP_Version1}"
+    echo -e "   \e[0;31m2\e[0m: Install PHP ${PHP_Version2}"
+    echo -e "   \e[0;31m3\e[0m: Install PHP ${PHP_Version3}"
+    echo -e "   \e[0;31m4\e[0m: Install PHP ${PHP_Version4}"
+    echo -e "   \e[0;31m5\e[0m: Install PHP ${PHP_Version5} \e[44;37m(Default)\e[0m"
+    echo -e "   \e[0;31m6\e[0m: Install PHP ${PHP_Version6}"
     read -p "Enter your choice (1, 2, 3, 4, 5 or 6): " PHPSelect
 
     case "${PHPSelect}" in
@@ -121,9 +121,9 @@ Dispaly_Selection()
 
     SelectMalloc="1"
     Echo_Yellow "You have 3 options for your Memory Allocator install."
-    echo "1: Don't install Memory Allocator. (Default)"
-    echo "2: Install Jemalloc"
-    echo "3: Install TCMalloc"
+    echo -e "   \e[0;31m1\e[0m: Don't install Memory Allocator. \e[44;37m(Default)\e[0m"
+    echo -e "   \e[0;31m2\e[0m: Install Jemalloc"
+    echo -e "   \e[0;31m3\e[0m: Install TCMalloc"
     read -p "Enter your choice (1, 2 or 3): " SelectMalloc
 
     case "${SelectMalloc}" in
@@ -145,12 +145,12 @@ Dispaly_Selection()
         MySQL51MAOpt=''
         MySQL55MAOpt=''
         NginxMAOpt=''
-    elif [ "${SelectMalloc}" =  "2" ]; then
+     elif [ "${SelectMalloc}" =  "2" ]; then
         MySQL51MAOpt='--with-mysqld-ldflags=-ljemalloc'
         MySQL55MAOpt="-DCMAKE_EXE_LINKER_FLAGS='-ljemalloc' -DWITH_SAFEMALLOC=OFF"
         MariaDBMAOpt=''
         NginxMAOpt="--with-ld-opt='-ljemalloc'"
-    elif [ "${SelectMalloc}" =  "3" ]; then
+     elif [ "${SelectMalloc}" =  "3" ]; then
         MySQL51MAOpt='--with-mysqld-ldflags=-ltcmalloc'
         MySQL55MAOpt="-DCMAKE_EXE_LINKER_FLAGS='-ltcmalloc' -DWITH_SAFEMALLOC=OFF"
         MariaDBMAOpt="-DCMAKE_EXE_LINKER_FLAGS='-ltcmalloc' -DWITH_SAFEMALLOC=OFF"
@@ -164,15 +164,15 @@ Nginx_Selection()
     echo "==========================="
     NginxSelect="1"
     Echo_Yellow "You have 2 options for your Nginx install."
-    echo "1: Install Nginx ${Nginx_Version1} (Default)"
-    echo "2: Install Nginx ${Nginx_Version2}"
+    echo -e "   \e[0;31m1\e[0m: Install Nginx ${Nginx_Version1} \e[44;37m(Default)\e[0m"
+    echo -e "   \e[0;31m2\e[0m: Install Nginx ${Nginx_Version2}"
     read -p "Enter your choice (1 or 2): " NginxSelect
 
     if [ "${NginxSelect}" = "1" ]; then
         echo -e " \e[0;32mYou will install \e[0;31mNginx ${Nginx_Version1}\e[0m"
-    elif [ "${NginxSelect}" = "2" ]; then
+     elif [ "${NginxSelect}" = "2" ]; then
         echo -e " \e[0;32mYou will install \e[0;31mNginx ${Nginx_Version2}\e[0m"
-    else
+     else
         echo -e " \e[0;32mNo input,You will install \e[0;31mNginx ${Nginx_Version1}\e[0m"
         NginxSelect="1"
     fi
@@ -185,28 +185,27 @@ Apache_Selection()
     ServerAdmin=""
     read -p "Please enter Administrator Email Address:" ServerAdmin
     if [ "${ServerAdmin}" == "" ]; then
-        echo "Administrator Email Address will set to webmaster@example.com!"
-        ServerAdmin="webmaster@example.com"
-    else
-    echo "==========================="
-    echo Server Administrator Email: "${ServerAdmin}"
-    echo "==========================="
+        echo "Administrator Email Address will set to hongm@sina.com!"
+        ServerAdmin="hongm@sina.com"
+     else
+        echo "==========================="
+        echo Server Administrator Email: "${ServerAdmin}"
+        echo "==========================="
     fi
 
 #which Apache Version do you want to install?
     echo "==========================="
-
     ApacheSelect="2"
     Echo_Yellow "You have 2 options for your Apache install."
-    echo "1: Install Apache ${Apache_Version1}"
-    echo "2: Install Apache ${Apache_Version2} (Default)"
+    echo -e "   \e[0;31m1\e[0m: Install Apache ${Apache_Version1}"
+    echo -e "   \e[0;31m2\e[0m: Install Apache ${Apache_Version2} \e[44;37m(Default)\e[0m"
     read -p "Enter your choice (1 or 2): " ApacheSelect
 
     if [ "${ApacheSelect}" = "1" ]; then
         echo -e " \e[0;32mYou will install \e[0;31mApache ${Apache_Version1}\e[0m"
-    elif [ "${ApacheSelect}" = "2" ]; then
+     elif [ "${ApacheSelect}" = "2" ]; then
         echo -e " \e[0;32mYou will install \e[0;31mApache ${Apache_Version2}\e[0m"
-    else
+     else
         echo -e " \e[0;32mNo input,You will install \e[0;31mApache ${Apache_Version2}\e[0m"
         ApacheSelect="2"
     fi

@@ -9,7 +9,7 @@ if [ $(id -u) != "0" ]; then
 fi
 
 cur_dir=$(pwd)
-Download_Mirror='http://192.168.128.99'
+Download_Mirror='http://hongm.emoodle.org'
 action=$1
 shopt -s extglob
 Upgrade_Date=$(date +"%Y%m%d%H%M%S")
@@ -27,20 +27,21 @@ Get_OS_Bit
 
 Display_Upgrade_Menu()
 {
-    echo "1: Upgrade Nginx"
-    echo "2: Upgrade MySQL"
-    echo "3: Upgrade MariaDB"
-    echo "4: Upgrade PHP for LNMP"
-    echo "5: Upgrade PHP for LNMPA or LAMP" 
-    echo "6: Upgrade MySQL to MariaDB"
-    echo "exit: Exit current script"
+    echo -e " \e[0;33mYou have 7 options for Upgrade.\e[0m"
+    echo -e "   \e[0;31m1\e[0m: Upgrade Nginx"
+    echo -e "   \e[0;31m2\e[0m: Upgrade MySQL"
+    echo -e "   \e[0;31m3\e[0m: Upgrade MariaDB"
+    echo -e "   \e[0;31m4\e[0m: Upgrade PHP for LNMP"
+    echo -e "   \e[0;31m5\e[0m: Upgrade PHP for LNMPA or LAMP"
+    echo -e "   \e[0;31m6\e[0m: Upgrade MySQL to MariaDB"
+    echo -e "   \e[0;31mexit\e[0m: Exit current script"
     echo "###################################################"
     read -p "Enter your choice (1, 2, 3, 4, 5, 6 or exit): " action
 }
 
 clear
 echo "+-----------------------------------------------------------------------+"
-echo "|            Upgrade script for LNMP V1.2, Written by XueHong           |"
+echo "|             Upgrade script for LNMP , Written by Hongm                |"
 echo "+-----------------------------------------------------------------------+"
 echo "|     A tool to upgrade Nginx,MySQL/Mariadb,PHP for LNMP/LNMPA/LAMP     |"
 echo "+-----------------------------------------------------------------------+"
