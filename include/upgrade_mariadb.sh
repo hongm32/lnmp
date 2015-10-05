@@ -8,7 +8,7 @@ Verify_MariaDB_Password()
         echo "MariaDB root password correct."
     else
         echo "MariaDB root password incorrect!Please check!"
-        Verify_MySQL_Password
+        Verify_MariaDB_Password
     fi
 }
 

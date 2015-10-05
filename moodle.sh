@@ -331,6 +331,18 @@ LNMP_Stack()
     Check_LNMP_Install
 }
 
+Verify_DB_Password()
+{
+    read -p "verify your current MySQL root password:" DB_Root_Password
+    mysql -uroot -p${DB_Root_Password} -e "quit"
+    if [ $? -eq 0 ]; then
+        echo "DB root password correct."
+     else
+        echo "DB root password incorrect!Please check!"
+        Verify_DB_Password
+    fi
+}
+
 
 Get_Dist_Name
 if [ "${DISTRO}" = "unknow" ]; then
@@ -347,6 +359,7 @@ echo "+------------------------------------------------------------------------+
 if [[ -s /usr/local/nginx/conf/nginx.conf && -s /usr/local/nginx/sbin/nginx ]]; then
     echo -e " \e[0;31mNginx OK.\e[0m"
     Select_Moodle
+    Verify_DB_Password
     Start_Moodle
  else
     Dispaly_Selection
